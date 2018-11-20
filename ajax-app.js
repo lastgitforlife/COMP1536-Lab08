@@ -15,3 +15,18 @@ app.get("/", function (req, res) {
 
 app.use("/js", express.static("static/javascript"));
 app.use("/css", express.static("static/css"));
+
+//default get function
+app.get("/ajax-GET", function (req, res) {
+    //Set type of response
+    res.setHeader("Content-Type", "application/json");
+    let out = //TODO: figure out what it outputs;
+    res.send({msg: out});
+})
+
+
+//RUN SERVER
+let port = 8000;
+app.listen(port, function () {
+    console.log("Listening on port " + port + "!");
+})
