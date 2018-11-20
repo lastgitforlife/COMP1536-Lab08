@@ -10,7 +10,7 @@ app.get("/", function (req, res) {
     let dom = new JSDOM(doc);
     let $ = require("jquery")(dom.window);
 
-    res.send(dome.serialize());
+    res.send(dom.serialize());
 })
 
 app.use("/js", express.static("static/javascript"));
