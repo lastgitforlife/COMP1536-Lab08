@@ -3,42 +3,115 @@
 ****                    Media Size 1                                      *****
 *******************************************************************************
 ******************************************************************************/
-@media only screen and (min-width: 800px){
-  #mainMenu{
-    width: 100%;
-    height: 40px;
-    top: 0%;
-    display: inline-block;
-    position: sticky;
-    background-color: lightblue;
+@media only screen and (min-width: 400px){
+
+  body{
+    background-color: rgba(255, 0, 0, 0.70);
   }
 
-  #mainMenu div{
+  /**
+  * The main div contains everything inside of it.
+  */
+  #maindiv{
+    right: 0px;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    position: absolute;
+  }
+
+  /** Navigation bar is non-sticky */
+  nav{
+    height: 50px;
+  }
+
+  /** Is nested inside of nav
+  * Contains main navigation links.
+  */
+  #mainMenu{
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    display: inline-block;
+    position: static;
+    background-color: red;
+  }
+
+  /**
+  * Custom buttons are divs that are surrounded by a tags.
+  */
+  .customButton{
     float: left;
     background-color: red;
     color: white;
-    width: 20%;
-    height: 100%;
+    width: 15%;
+    height: 30px;
+    padding-top: 10px;
+    padding-bottom: 5px;
     text-align: center;
     margin-left: 5px;
     margin-right: 5px;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
+  }
+
+  /**
+  * Text that comes beside the navigation bar.
+  */
+  #mainMenu div h4{
+    top: 0px;
+    margin: 0px;
+  }
+
+  a:hover{
+    border: 2px solid yellow;
+  }
+
+  /**
+  * A full width banner that showcases smash characters.
+  */
+  #header{
+    height: 400px;
+    width: 100%;
+    display: inline-block;
+    position: static;
+    background-image: url("https://cdn.vox-cdn.com/thumbor/IRJeALkeykaaJIl6YBgAXvnHLfE=/0x0:2400x1517/1200x675/filters:focal(1008x567:1392x951)/cdn.vox-cdn.com/uploads/chorus_image/image/60149789/smash_illo.0.jpg");
+    background-size: cover;
+    background-repeat:no-repeat;
+  }
+
+  /** CHARACTER BODY CSS */
+
+  #smashCharacterBody{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 450px;
+    background-color: red;
+  }
+  #smashCharacterImage{
+    position: absolute;
+    left: 20%;
+    right: 20%;
+    bottom: 10px;
+    top: 50px;
+    background-color: white;
+    background-image: url("https://static.altchar.com/live/media/images/625x416_ct/9692_Smash_Bros_Roster_A_3318082a2c502cbd27934c930a40f107.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  #smashCharacterInfo{
+    position: absolute;
+    top: 10px;
+    left: 20%;
+    right: 20%;
+    height: 40px;
+    background-color: white;
   }
 }
 
 /******************************************************************************
 *******************************************************************************
 ****                    Media Size 2                                      *****
-*******************************************************************************
-******************************************************************************/
-@media only screen and (min-width: 400px) and (max-width: 799px){
-
-}
-
-/******************************************************************************
-*******************************************************************************
-****                    Media Size 3                                      *****
 *******************************************************************************
 ******************************************************************************/
 @media only screen and (max-width: 399px){
