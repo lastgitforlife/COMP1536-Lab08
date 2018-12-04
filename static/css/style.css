@@ -37,18 +37,18 @@ img {
 /*
 * Zoom in animation for desktop view header image.
 */
-@keyframes zoomIn {
+@keyframes changeColor {
     0%   {background-color: red;}
     20%  {background-color: #ED2939;}
     40%  {background-color: #800000;}
     60% {background-color: #EA3C53;}
     80% {background-color: #Dff280;}
-    100%   {background-color: red;}
+    100%  {background-color: red;}
 
 }
 
 #mainMenu, #navi > li  {
-  animation-name: zoomIn;
+  animation-name: changeColor;
   animation-duration: 5s;
   animation-iteration-count: infinite;
 }
