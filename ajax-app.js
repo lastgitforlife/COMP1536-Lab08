@@ -1,27 +1,39 @@
-const data = require("./core/data");
+// https://expressjs.com/en/guide/routing.html
+
+
+// REQUIRES
+const lists = require('./core/data');
 const express = require('express');
+// as of Express 4, you need this:
+// https://www.npmjs.com/package/body-parser
 const bodyParser = require('body-parser');
 const app = express();
+// https://www.npmjs.com/package/jsdom
 const { JSDOM } = require('jsdom');
-const fs = require('fs');
+const fs = require("fs");
 
-app.get("/", function (req, res) {
-    let doc = fs.readFileSync("./static/html/index.html", "utf8");
+app.get('/', function (req, res) {
+    let doc = fs.readFileSync('./static/html/index.html', "utf8");
+    //console.log(JSDOM);
     let dom = new JSDOM(doc);
     let $ = require("jquery")(dom.window);
 
+
     res.send(dom.serialize());
-})
+});
 
-app.use("/js", express.static("static/javascript"));
-app.use("/css", express.static("static/css"));
+app.use('/js', express.static('static/js'))
+app.use('/css', express.static('static/css'))
+app.use('/img', express.static('static/img'))
 
-//default get function
-app.get("/ajax-GET", function (req, res) {
-    //Set type of response
-    res.setHeader("Content-Type", "application/json");
-    let out = //TODO: figure out what it outputs;
-    res.send({msg: out});
+app.get('/ajax-GET', function (req, res) {
+
+    // set the type of response:
+    res.setHeader('Content-Type', 'application/json');
+    let d = new Date();
+
+    res.send({ msg: d });
+
 })
 
 app.get('/ajax-GET-list', function (req, res) {
@@ -48,24 +60,29 @@ app.get('/ajax-GET-list', function (req, res) {
     }
 });
 
+// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// parse application/json
 app.use(bodyParser.json());
 
-app.post("/post-form", function (req, res) {
-    res.setHeader("Content-Type", "application/json");
-    console.log("Stuff sent to server", req.body);
-    res.send(["you sent me:", req.body]);
-})
+// Notice that this is a 'POST'
+app.post('/post-form', function (req, res) {
+      res.setHeader('Content-Type', 'application/json');
 
-//For page not found
+      console.log("Stuff sent to server", req.body);
+
+      res.send(["You sent me:", req.body]);
+
+});
+
+// for page not found (i.e., 404)
 app.use(function (req, res, next) {
-    res.status(404).send("<html><head><title>Page not found</title></head>"
-    + "<body><p>Nothing here</p></body></html>");
+  res.status(404).send("<html><head><title>Page not found!</title></head><body><p>Nothing here.</p></body></html>");
 })
 
-//RUN SERVER
+// RUN SERVER
 let port = 8000;
 app.listen(port, function () {
-    console.log("Listening on port " + port + "!");
+    console.log('Example app listening on port ' + port + '!');
 })
