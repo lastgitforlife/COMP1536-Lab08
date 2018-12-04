@@ -5,7 +5,7 @@
 }
 
 body, html {
-  background-color :	#ED1C24;
+  background-color:	#FF4C4C;
 }
 
 a {
@@ -17,12 +17,15 @@ a:hover {
   color: black;
 }
 
+h1 {
+  font-size: 36px;
+}
 
 @media only screen and (min-width: 1200px){
 
 }
 
-@media only screen and (min-width: 750px) and (max-width: 1159px) {
+@media only screen and (min-width: 770px) and (max-width: 1159px) {
 
   li, #title {
     display: block;
@@ -45,7 +48,8 @@ a:hover {
   }
 
   li {
-    width: 25%;
+    width: 20%;
+    height: 80px;
     display: block;
     float: left;
     list-style-type: none;
@@ -56,10 +60,16 @@ a:hover {
 
   #navi > li {
     font-size: 24px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    position: relative;
     border-width:5px;
     border-bottom-style:ridge;
+    background-color: #ED1C24;
+  }
+
+  a > div {
+    width: 144px;
+  	padding-left: 15px;
+    padding-right: 15px;
   }
 
   header {
@@ -69,9 +79,20 @@ a:hover {
     background-size: cover;
   }
 
+  #aboutus {
+    position: relative;
+    top: 15px;
+  }
+
+  #purchase {
+    position: relative;
+    top: 7px;
+  }
+
+
 }
 
-@media only screen and (max-width: 749px){
+@media only screen and (max-width: 769px){
 
   li, #title {
     width: 100%;
@@ -96,6 +117,7 @@ a:hover {
     padding-bottom: 8px;
     border-width:5px;
     border-bottom-style:ridge;
+    background-color :	#ED1C24;
   }
 
   header {
@@ -125,6 +147,7 @@ a:hover {
     padding-left: 10%;
     padding-right: 10%;
     background-color:	#FF4C4C;
+    overflow: auto;
   }
 
   .charimg {
@@ -138,5 +161,16 @@ a:hover {
     width: 100%;
     display: block;
     float: left;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
+
+  .centertext {
+    text-align: center;
+  }
+
+  .caption_name {
+    font-size: 24px;
+  }
+
 }

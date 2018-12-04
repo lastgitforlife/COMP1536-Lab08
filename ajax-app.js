@@ -55,6 +55,18 @@ app.get('/ajax-GET-list', function (req, res) {
         dataList = lists.getJSON();
         res.send(dataList);
 
+    } else if(formatOfResponse == 'getAboutUs') {
+
+        res.setHeader('Content-Type', 'text/html');
+        dataList = lists.getAboutUs();
+        res.send(dataList);
+
+    } else if(formatOfResponse == 'getGeneralInformation') {
+
+        res.setHeader('Content-Type', 'text/html');
+        dataList = lists.getGeneralInformation();
+        res.send(dataList);
+
     } else {
         res.send({msg: 'Wrong format!'});
     }
